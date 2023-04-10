@@ -10,9 +10,13 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Product_name</th>
-                            <th>quantity</th>
-                            <th>price</th>
+                            <th>Nom_Prod</th>
+                            <th>Quantité</th>
+                            <th>Unité</th>
+                            <th>Date_liv</th>
+                            <th>Prix_achat</th>
+                            <th>Prix_vente</th>
+                            <th>Date_exp</th>
                             
                         </tr>
                     </thead>
@@ -26,9 +30,14 @@
                         @foreach($stock as $item)
                         <tr>
                             <td>{{$ide}}</td>
-                            <td><strong>{{ $item->Product_name}}</strong></td>
-                            <td><strong>{{ $item->quantity}}</strong></td>
-                            <td><strong>{{ $item->price}}</strong></td>
+                            <td><strong>{{ $item->Nom_Prod}}</strong></td>
+                            <td><strong>{{ $item->Quantité}}</strong></td>
+                            <td><strong>{{ $item->Unité}}</strong></td>
+                            <td><strong>{{ $item->Date_liv}}</strong></td>
+                            <td><strong>{{ $item->Prix_achat}}DH</strong></td>
+                            <td><strong>{{ $item->Prix_vente}}DH</strong></td>
+                            <td><strong>{{ $item->Date_exp}}</strong></td>
+
                             <td><a  href="{{ route('stock.show', $item->id)}}"><button class="btn btn-primary">Voir</button></a></td>
                             <td><a  href="{{ route('stock.edit', $item->id)}}"> <button class="btn btn-warning">Modifier</button></a></td>
                             <td>
