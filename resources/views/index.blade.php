@@ -2,7 +2,7 @@
 @section('content')
     <div class="card">
         <header class="card-header">
-            <p class="card-header-title" style="text-align: center" >Products</p>
+            <p class="card-header-title" style="text-align: center" >Produits</p>
         </header>
         <div class="card-content">
             <div class="content">
@@ -24,10 +24,10 @@
                         @php
                             $ide=0
                         @endphp
+                        @foreach($stock as $item)
                         @php
                         $ide+=1
                         @endphp
-                        @foreach($stock as $item)
                         <tr>
                             <td>{{$ide}}</td>
                             <td><strong>{{ $item->Nom_Prod}}</strong></td>
