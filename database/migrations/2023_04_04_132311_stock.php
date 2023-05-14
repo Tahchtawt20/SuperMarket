@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('Quantité');
             $table->char('Unité');
             $table->date('Date_liv');
-            $table->integer('Prix_achat');
-            $table->integer('Prix_vente');
+            $table->decimal('Prix_achat',10,2);
+            $table->decimal('Prix_vente',10,2);
             $table->date('Date_exp');
             $table->timestamps();
         });
