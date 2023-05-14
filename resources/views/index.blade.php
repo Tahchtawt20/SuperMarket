@@ -44,7 +44,7 @@
                             <form action="{{route('stock.destroy', $item->id) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Supprimer</button>
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('{{('Etes vous sur de vouloir supprimer le produit?') }}')">Supprimer</button>
                             </form>
                             </td>
                         </tr>

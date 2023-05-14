@@ -21,12 +21,14 @@
                       <input type="text" name="qte" value={{$stock->Quantité}} class="form-control" @disabled(true)>
                     </div>
                 </div>
-                <div class="row">
+                @if ($stock->Unité)
+                    <div class="row">
                     <div class="col">
                       <label for="">Unité</label>
                       <input type="text" name="unite" value={{$stock->Unité}} class="form-control" @disabled(true)>
                     </div>
                 </div>
+                @endif
                 <div class="row">
                     <div class="col">
                       <label for="">Date_liv </label>
