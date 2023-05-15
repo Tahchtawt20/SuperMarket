@@ -22,3 +22,7 @@ Route::resource('stock' , App\Http\Controllers\SuperC::class);
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/responsable_dashboard',[App\Http\Controllers\responsable\DashboardController::class, 'index'])->middleware('role:responsable');
+Route::get('/caissier_dashboard', [App\Http\Controllers\caissier\DashboardController::class, 'index'])->middleware('role:caissier');
+Route::get('/stock_dashboard', [App\Http\Controllers\stock\DashboardController::class, 'index'])->middleware('role:stock');
