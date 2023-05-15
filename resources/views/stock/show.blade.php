@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.layout')
 @section('content')
     <div class="d-flex justify-content-center p-2 m-2">
         <div class="card p-2 w-50">

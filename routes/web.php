@@ -18,11 +18,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('stock' , App\Http\Controllers\SuperC::class);
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/responsable_dashboard',[App\Http\Controllers\responsable\DashboardController::class, 'index'])->middleware('role:responsable');
 Route::get('/caissier_dashboard', [App\Http\Controllers\caissier\DashboardController::class, 'index'])->middleware('role:caissier');
-Route::get('/stock_dashboard', [App\Http\Controllers\stock\DashboardController::class, 'index'])->middleware('role:stock');
+
+// employée du stock
+Route::get('/stock/dashboard', [App\Http\Controllers\stock\DashboardController::class, 'index'])->middleware('role:stock')->name('index');
+Route::get('/stock/create',[App\Http\Controllers\stock\DashboardController::class, 'create'])->name('create');
+Route::get('/stock/{id}',[App\Http\Controllers\stock\DashboardController::class, 'show'])->name('show');
+Route::put('/stock/{id}',[App\Http\Controllers\stock\DashboardController::class, 'update'])->name('update');
+Route::get('/stock/{id}/edit',[App\Http\Controllers\stock\DashboardController::class, 'edit'])->name('edit');
+Route::delete('/stock/{id}',[App\Http\Controllers\stock\DashboardController::class, 'destroy'])->name('destroy');
+Route::post('/stock/store',[App\Http\Controllers\stock\DashboardController::class, 'store'])->name('store');
+
+
+// logout
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'perform'])->name('logout');
+});
