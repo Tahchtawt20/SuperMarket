@@ -15,4 +15,12 @@ class DashboardController extends Controller {
     $prods=DB::table('stock')->get();
     return view('responsable.produitsStock',['prods'=>$prods]);
   }
+  public function fournisseurs(){
+    $fou=DB::table('fournisseurs')->get();
+    return view('responsable.fournisseurs',['fou'=>$fou]);
+  }
+  public function employes(){
+    $emp=DB::table('users')->where('role','!=','responsable')->get();
+    return view('responsable.employes',['emp'=>$emp]);
+  }
 }

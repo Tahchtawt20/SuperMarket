@@ -10,7 +10,7 @@
                     @if (auth()->user()->role == 'responsable')
                         <a href="{{  url('/responsable_dashboard')}}" class="btn btn-primary"> Acceuil </a>
                     @elseif (auth()->user()->role == 'stock')
-                    <a href="{{ url('/stock_dashboard') }}" class="btn btn-primary"> Acceuil </a>
+                    <a href="{{ url('/stock/dashboard') }}" class="btn btn-primary"> Acceuil </a>
                     @else
                     <a href="{{ url('/caissier_dashboard') }}" class="btn btn-primary"> Acceuil </a>
                     @endif

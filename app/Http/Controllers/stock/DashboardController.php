@@ -36,7 +36,7 @@ class DashboardController extends Controller {
             'Prix_vente'=>$request->prixv,
             'Date_exp'=>$request->exp
         ]);
-        return redirect()->route('stock.index');
+        return redirect()->route('index');
     }
 
     /**

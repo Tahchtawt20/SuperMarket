@@ -34,8 +34,13 @@ Route::delete('/stock/{id}',[App\Http\Controllers\stock\DashboardController::cla
 Route::post('/stock/store',[App\Http\Controllers\stock\DashboardController::class, 'store'])->name('store');
 
 
+Route::get('/responsable_dashboard/fournisseurs',[App\Http\Controllers\responsable\DashboardController::class,'fournisseurs'])->name('fournisseurs');
+Route::get('/responsable_dashboard/employes',[App\Http\Controllers\responsable\DashboardController::class,'employes'])->name('employes');
 Route::get('/responsable_dashboard/produitsStock',[App\Http\Controllers\responsable\DashboardController::class,'produitsStock'])->name('produitsStock');
 
+
+//home
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // logout
 Route::group(['middleware' => ['auth']], function () {

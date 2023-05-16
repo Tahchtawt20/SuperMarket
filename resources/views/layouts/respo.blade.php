@@ -50,10 +50,10 @@
                             @endif
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('home') }}">Fournisseurs</a>
+                            <a class="nav-link" href="{{ route('fournisseurs') }}">Fournisseurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('home') }}">Employés</a>
+                            <a class="nav-link" href="{{ route('employes') }}">Employés</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('produitsStock') }}">Produits en stock</a>
