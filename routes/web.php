@@ -39,8 +39,7 @@ Route::get('/responsable_dashboard/employes',[App\Http\Controllers\responsable\D
 Route::get('/responsable_dashboard/produitsStock',[App\Http\Controllers\responsable\DashboardController::class,'produitsStock'])->name('produitsStock');
 
 
-//home
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/responsable_dashboard/produitsStock/filterResults', [App\Http\Controllers\responsable\DashboardController::class, 'filter'])->name('filter');
 
 // logout
 Route::group(['middleware' => ['auth']], function () {

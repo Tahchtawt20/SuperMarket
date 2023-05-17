@@ -1,14 +1,20 @@
 @extends('layouts.respo')
 
 @section('content')
+<h1>caissiers</h1>
     @foreach ($emp as $p)
-        <div >
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Employes {{ $p->name.' ::: '.$p->role }}</h3>
-                    </div>
-                </div>
-            </div>
+        @if ($p->role=='caissier')
+            nom : {{ $p->name }} <br>
+            email : {{ $p->email }} <br>
+            role : {{ $p->role }}
+        @endif
+    @endforeach
+<h1>employes de stock</h1>
+    @foreach ($emp as $p)
+        @if ($p->role=='stock')
+            nom : {{ $p->name }} <br>
+            email : {{ $p->email }} <br>
+            role : {{ $p->role }}
+        @endif
     @endforeach
 @endsection
