@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\responsable;
 
 use App\Http\Controllers\Controller;
+use App\Models\SuperM;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,8 @@ class DashboardController extends Controller
   }
   public function index()
   {
-    return view('responsable.dashboard');
+    $categories=SuperM::groupBy('categorie')->select('categorie', DB::raw('count(*) as product_count'))->get();
+    return view('responsable.dashboard',['categories'=>$categories]);
   }
   public function produitsStock()
   {
