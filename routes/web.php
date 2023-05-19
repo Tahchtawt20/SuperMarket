@@ -32,7 +32,7 @@ Route::put('/stock/{id}',[App\Http\Controllers\stock\DashboardController::class,
 Route::get('/stock/{id}/edit',[App\Http\Controllers\stock\DashboardController::class, 'edit'])->name('edit');
 Route::delete('/stock/{id}',[App\Http\Controllers\stock\DashboardController::class, 'destroy'])->name('destroy');
 Route::post('/stock/store',[App\Http\Controllers\stock\DashboardController::class, 'store'])->name('store');
-
+Route::post('/stock_dashboard',[App\Http\Controllers\stock\DashboardController::class, 'search'])->name('search');
 
 Route::get('/responsable_dashboard/fournisseurs',[App\Http\Controllers\responsable\DashboardController::class,'fournisseurs'])->name('fournisseurs');
 Route::get('/responsable_dashboard/employes',[App\Http\Controllers\responsable\DashboardController::class,'employes'])->name('employes');
