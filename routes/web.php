@@ -25,7 +25,7 @@ Route::get('/responsable_dashboard',[App\Http\Controllers\responsable\DashboardC
 Route::get('/caissier_dashboard', [App\Http\Controllers\caissier\DashboardController::class, 'index'])->middleware('role:caissier');
 
 // employée du stock
-Route::get('/stock/dashboard', [App\Http\Controllers\stock\DashboardController::class, 'index'])->middleware('role:stock')->name('index');
+Route::get('/stock_dashboard', [App\Http\Controllers\stock\DashboardController::class, 'index'])->middleware('role:stock')->name('index');
 Route::get('/stock/create',[App\Http\Controllers\stock\DashboardController::class, 'create'])->name('create');
 Route::get('/stock/{id}',[App\Http\Controllers\stock\DashboardController::class, 'show'])->name('show');
 Route::put('/stock/{id}',[App\Http\Controllers\stock\DashboardController::class, 'update'])->name('update');
