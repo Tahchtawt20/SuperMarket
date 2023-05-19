@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('stock', function (Blueprint $table) {
             $table->id();
             $table->string('Nom_Prod');
+            $table->string('categorie');
             $table->integer('Quantité');
             $table->char('Unité');
             $table->date('Date_liv');

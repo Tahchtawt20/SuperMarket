@@ -18,6 +18,12 @@
                 </div>
                 <div class="row">
                     <div class="col">
+                      <label for="">Categorie</label>
+                      <input type="text" name="categories" class="form-control" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
                       <label for="">Quantity</label>
                       <input type="text" name="qte" class="form-control" >
                     </div>
