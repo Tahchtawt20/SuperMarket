@@ -1,11 +1,28 @@
 @extends('layouts.respo')
 
+@section('title','Dashboard')
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+                    <div class="card-body">
+                        @foreach ($prods as $p)
+                        <div >
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Produit {{ $p->Nom_Prod }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                    @endforeach
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">{{ __('Statistiques') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -14,7 +31,6 @@
                             </div>
                         @endif
 
-                        {{ __('Hello RESPONSABLE, You are logged in!') }}
                         <div style='height:400px'>
                             <canvas id="pieChart"></canvas>
                         </div>
@@ -37,7 +53,7 @@
                                         labels: labels,
                                         datasets: [{
                                             data: percentages,
-                                            backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange'],
+                                            backgroundColor: ['#026E81', '#00ABBD', '#FF9933','#0099DD','#FEBB5F' , '#A1C7E0'],
                                         }]
                                     },
                                     options: {
@@ -49,6 +65,7 @@
                         </script>
                     </div>
                 </div>
+                
             </div>
         </div>
     @endsection

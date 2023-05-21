@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Supermarché Nasami</title>
+    <title>Supermarché NASAMI</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -869,7 +869,7 @@
 
         <div class="max-w-7xl mx-auto p-6 lg:p-8">
             <div class="flex justify-center">
-                <img src={{ asset('2-removebg-preview.png') }} alt="logo" class="logo" width="200px" />
+                <img src={{ asset('2-removebg.png') }} alt="logo" class="logo" width="200px" />
             </div>
 
             <div class="mt-6">
