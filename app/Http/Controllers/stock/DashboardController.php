@@ -11,7 +11,7 @@ class DashboardController extends Controller {
   }
   public function index()
     {
-        $prod=DB::table('stock')->get();
+        $prod=DB::table('stock')->paginate(10);
         return view('stock.dashboard',['stock'=> $prod]);
     }
      /**

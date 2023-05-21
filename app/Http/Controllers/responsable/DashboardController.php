@@ -16,29 +16,27 @@ class DashboardController extends Controller
   public function index()
   {
     $categories=SuperM::groupBy('categorie')->select('categorie', DB::raw('count(*) as product_count'))->get();
-    $prods = DB::table('stock')->get();
+    $prods = DB::table('stock')->orderBy('categorie')->get();
 
     return view('responsable.dashboard',['categories'=>$categories,'prods'=>$prods]);
   }
-  public function produitsStock()
-  {
-    $prods = DB::table('stock')->get();
-    return view('responsable.produitsStock', ['prods' => $prods]);
-  }
+
   public function fournisseurs()
   {
     $fou = DB::table('fournisseurs')->get();
     return view('responsable.fournisseurs', ['fou' => $fou]);
   }
+
   public function employes()
   {
     $emp = DB::table('users')->where('role', '!=', 'responsable')->get();
     return view('responsable.employes', ['emp' => $emp]);
   }
+
   public function filter(Request $request)
   {
     $categorie=$request->input('categories');
     $prod = DB::table('stock')->where('categorie', $categorie)->get();
-    return view('responsable.filterResults', ['prods' => $prod]);
+    return view('responsable.filterResults', ['prods' => $prod,'categorie'=>$categorie]);
   }
 }

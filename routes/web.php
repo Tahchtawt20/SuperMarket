@@ -42,10 +42,9 @@ Route::post('/stock_dashboard',[App\Http\Controllers\stock\DashboardController::
 
 Route::get('/responsable_dashboard/fournisseurs',[App\Http\Controllers\responsable\DashboardController::class,'fournisseurs'])->name('fournisseurs');
 Route::get('/responsable_dashboard/employes',[App\Http\Controllers\responsable\DashboardController::class,'employes'])->name('employes');
-Route::get('/responsable_dashboard/produitsStock',[App\Http\Controllers\responsable\DashboardController::class,'produitsStock'])->name('produitsStock');
+Route::get('/responsable_dashboard',[App\Http\Controllers\responsable\DashboardController::class,'index'])->name('respoDash');
 
-
-Route::post('/responsable_dashboard/produitsStock/filterResults', [App\Http\Controllers\responsable\DashboardController::class, 'filter'])->name('filter');
+Route::post('/responsable_dashboard/filterResults', [App\Http\Controllers\responsable\DashboardController::class, 'filter'])->name('filter');
 
 // logout
 Route::group(['middleware' => ['auth']], function () {
