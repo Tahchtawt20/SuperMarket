@@ -19,6 +19,12 @@
                 </div>
                 <div class="row">
                     <div class="col">
+                      <label for="">Product_name</label>
+                      <input type="text" name="categories"  value={{$stock->categorie}} class="form-control" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
                       <label for="">Quantity</label>
                       <input type="text" name="qte" value={{$stock->Quantité}} class="form-control" >
                     </div>

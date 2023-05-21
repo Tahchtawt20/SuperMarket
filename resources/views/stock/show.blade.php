@@ -17,6 +17,12 @@
                 </div>
                 <div class="row">
                     <div class="col">
+                      <label for="">Categorie</label>
+                      <input type="text" name="categories"  value={{$stock->categorie}} class="form-control" @disabled(true)>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
                       <label for="">Quantity</label>
                       <input type="text" name="qte" value={{$stock->Quantité}} class="form-control" @disabled(true)>
                     </div>
@@ -53,7 +59,11 @@
                       <input type="date" name="exp" value={{$stock->Date_exp}} class="form-control" @disabled(true)>
                     </div>
                 </div>
+                <div>
+                <a href="{{ route('index') }}"><button class="btn btn-success w-100 ">Retour</button></a>
+                </div>
         </div>
+        
   </div>
 @endsection
 

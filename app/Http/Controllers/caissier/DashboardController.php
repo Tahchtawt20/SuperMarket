@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers\caissier;
+use App\Models\SuperM;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -8,6 +10,24 @@ class DashboardController extends Controller {
     $this->middleware('auth');
   }
   public function index() {
-    return view('caissier.dashboard');
+    // $prodr=DB::table("stock")-> get();
+            $prodr=SuperM::all();
+            // dd($prodr);
+    return view('caissier.dashboard',['produit'=>$prodr]);
   }
+  public function update(Request $request,$id)
+
+{
+    // $prodr = DB::table('stock')->where('id',$id)->get();
+    $prodr = SuperM::find($id);
+    $stockVal=$request->input('num');
+
+
+    // DB::table('stock')->where('id',$id)->update(['Quantité' => $prodr->$Quantité-$stockVal]);
+    $prodr->Quantité = $prodr->Quantité-$stockVal;
+    $prodr->save();
+    
+    return redirect()->back()->with('success', 'Value updated successfully.');
 }
+}
+

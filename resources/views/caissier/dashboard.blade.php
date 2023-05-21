@@ -14,7 +14,20 @@
                         </div>
                     @endif
 
-                    {{ __('Hello CAISSIER, You are logged in!') }}
+                    @foreach($produit as $pr)
+
+                    
+                    <div>
+                       {{$pr->Nom_Prod}} 
+                       <b>{{$pr->Quantité}}</b> 
+                    
+                       <form action="{{ route('update-value', ['id' => $pr->id]) }}" method="POST">
+                        @csrf
+                        <input type="number" min="0" max="{{$pr->Quantité}}" name='num'>
+                       <button type="submit">-</button>
+                    </form>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
