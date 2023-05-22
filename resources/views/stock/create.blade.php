@@ -19,7 +19,12 @@
                 <div class="row">
                     <div class="col">
                       <label for="">Categorie</label>
-                      <input type="text" name="categories" class="form-control" >
+                      <select name="categories" id="categories">
+                        <option disabled selected>--</option>
+                        <option value="produits laitiers">produits laitiers</option>
+                        <option value="huiles">les huiles</option>
+                        <option value="produits d'hygiene">produits d'hygiene</option>
+                    </select>
                     </div>
                 </div>
                 <div class="row">

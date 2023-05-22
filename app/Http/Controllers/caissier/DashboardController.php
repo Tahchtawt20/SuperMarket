@@ -13,6 +13,8 @@ class DashboardController extends Controller {
     // $prodr=DB::table("stock")-> get();
             $prodr=SuperM::all();
             // dd($prodr);
+            DB::table('stock')->where('Quantité' , 0)->delete();
+
     return view('caissier.dashboard',['produit'=>$prodr]);
   }
   public function update(Request $request,$id)

@@ -19,7 +19,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                      <label for="">Product_name</label>
+                      <label for="">Categorie</label>
                       <input type="text" name="categories"  value={{$stock->categorie}} class="form-control" >
                     </div>
                 </div>
