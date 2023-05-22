@@ -17,7 +17,7 @@ class DashboardController extends Controller
   {
     DB::table('stock')->where('Quantité' , 0)->delete();
     $categories=SuperM::groupBy('categorie')->select('categorie', DB::raw('count(*) as product_count'))->get();
-    $prods = DB::table('stock')->orderBy('categorie')->get();
+    $prods = DB::table('stock')->get();
 
     return view('responsable.dashboard',['categories'=>$categories,'prods'=>$prods]);
   }

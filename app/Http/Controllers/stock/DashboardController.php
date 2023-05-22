@@ -38,7 +38,7 @@ class DashboardController extends Controller {
             'Prix_vente'=>$request->prixv,
             'Date_exp'=>$request->exp
         ]);
-        return redirect()->route('index')->with('ajout', 'le produits ajouté avec succes');
+        return redirect()->route('index')->with('status','Produit ajouté avec succès !');
     }
 
     /**
@@ -85,7 +85,7 @@ class DashboardController extends Controller {
         // $prod->Prix_vente=$request->input('prixv');
         // $prod->Date_exp=$request->input('exp');
         // $prod->save();
-        return redirect()->route('index');
+        return redirect()->route('index')->with('status','Produit modifié avec succès !');
     }
 
     /**
@@ -96,6 +96,7 @@ class DashboardController extends Controller {
         SuperM::destroy($id);
         return redirect()->route('index');
     }
+    
     public function search (Request $request){
         $result=$request->input('categories');
         $prod = DB::table('stock')->where('categorie', $result)->get();

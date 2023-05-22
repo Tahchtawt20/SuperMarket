@@ -1,5 +1,5 @@
 @extends('layouts.stock')
-@section('title','Dashboard')
+@section('title', 'Dashboard')
 @section('content')
 @if(session('ajout'))
   <span><div class="alert alert-primary " role="alert">{{session('ajout')}}</div></span>
@@ -11,6 +11,11 @@
             </header>
             <div class="card-content">
                 <div class="content p-4">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <form action="{{ route('search') }}" method="post" class="d-flex form-group col-md-5">
                         @csrf
                         <label for="categories" class="col-4">Chercher par categorie : </label>
@@ -27,7 +32,7 @@
                             <option value="Entretien ménager">Entretien ménager</option>
                             <option value="Alimentation pour animaux">Alimentation pour animaux</option>
                             <option value="Bébés et enfants">Bébés et enfants</option>
-                            </select>
+                        </select>
                         <input type="submit" class="btn btn-primary" value="chercher">
                     </form>
                     <br>
@@ -57,7 +62,7 @@
                                 @php
                                     $ide += 1;
                                 @endphp
-                                <tr>
+                                <tr class="{{ $item->Quantité < 10 ? 'text-danger fw-bold' : '' }}">
                                     <th>{{ $ide }}</th>
                                     <td>{{ $item->Nom_Prod }}</td>
                                     <td>{{ $item->categorie }}</td>
@@ -69,13 +74,14 @@
                                     <td>{{ $item->Date_exp }}</td>
                                     <td><a href="{{ route('show', $item->id) }}"><button
                                                 class="btn btn-primary">Voir</button></a></td>
-                                    <td><a href="{{ route('edit', $item->id) }}"> <button
-                                                class="btn text-white" style="background-color: #63bff0">Modifier</button></a></td>
+                                    <td><a href="{{ route('edit', $item->id) }}"> <button class="btn text-white"
+                                                style="background-color: #63bff0">Modifier</button></a></td>
                                     <td>
                                         <form action="{{ route('destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn text-white" style="background-color: rgb(246,147,28)" type="submit"
+                                            <button class="btn text-white" style="background-color: rgb(246,147,28)"
+                                                type="submit"
                                                 onclick="return confirm('{{ 'Etes vous sur de vouloir supprimer le produit?' }}')">Supprimer</button>
                                         </form>
                                     </td>
