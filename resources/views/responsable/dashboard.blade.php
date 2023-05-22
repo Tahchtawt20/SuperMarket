@@ -99,12 +99,11 @@
                                         @php
                                             $ide += 1;
                                         @endphp
-                                        <tr>
+                                        <tr class="{{ $item->Quantité < 10 ? 'text-danger fw-bold' : '' }}">
                                             <th>{{ $ide }}</th>
                                             <td>{{ $item->Nom_Prod }}</td>
                                             <td>{{ $item->categorie }}</td>
-                                            <td class="{{ $item->Quantité < 10 ? 'text-danger' : '' }}">
-                                                {{ $item->Quantité }}</td>
+                                            <td>{{ $item->Quantité }}</td>
                                             <td>{{ $item->Unité }}</td>
                                             <td>{{ $item->Prix_achat }}DH</td>
                                             <td>{{ $item->Prix_vente }}DH</td>

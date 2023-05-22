@@ -6,7 +6,6 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -14,7 +13,7 @@
                             </div>
                         @endif
                         <span class="d-flex form-group col-md-7">
-                            <input type="text" id="productInput" placeholder="Entrez le nom d'un produit">
+                            <input type="text" id="productInput" placeholder="Entrez le nom d'un produit" class="form-control">
                             <input type="button" value="chercher" onclick="scrollToProduct()" class="btn text-white ms-1" style="background-color: #63bff0">
                         </span>
                         <br>
@@ -43,7 +42,7 @@
                                                 @csrf
                                                 <input type="number" min="0" max="{{ $item->Quantité }}"
                                                     name='num' class="form-control">
-                                                <button type="submit" class="btn btn-primary"><b>-</b></button>
+                                                <button type="submit" class="btn btn-primary ms-1"><b>-</b></button>
                                             </form>
                                         </td>
                                     </tr>
@@ -61,9 +60,7 @@
                                         row.classList.remove('text-white','bg-success','bg-opacity-50');
                                     });
 
-                                    // Add active class to the target row
                                     productElement.classList.add('text-white','bg-success','bg-opacity-50');
-
 
                                     productElement.scrollIntoView({
                                         behavior: 'smooth'
