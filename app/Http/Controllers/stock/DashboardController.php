@@ -38,7 +38,7 @@ class DashboardController extends Controller {
             'Prix_vente'=>$request->prixv,
             'Date_exp'=>$request->exp
         ]);
-        return redirect()->route('index');
+        return redirect()->route('index')->with('ajout', 'le produits ajouté avec succes');
     }
 
     /**

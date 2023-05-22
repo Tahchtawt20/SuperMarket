@@ -1,6 +1,9 @@
 @extends('layouts.stock')
 @section('title','Dashboard')
 @section('content')
+@if(session('ajout'))
+  <span><div class="alert alert-primary " role="alert">{{session('ajout')}}</div></span>
+@endif
     <div class="container">
         <div class="card">
             <header class="card-header">
