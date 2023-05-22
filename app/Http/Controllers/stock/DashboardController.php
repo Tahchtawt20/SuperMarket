@@ -11,6 +11,7 @@ class DashboardController extends Controller {
   }
   public function index()
     {
+        DB::table('stock')->where('Quantité' , 0)->delete();
         $prod=DB::table('stock')->paginate(10);
         return view('stock.dashboard',['stock'=> $prod]);
     }
