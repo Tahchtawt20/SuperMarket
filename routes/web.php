@@ -45,8 +45,3 @@ Route::get('/responsable_dashboard/employes',[App\Http\Controllers\responsable\D
 Route::get('/responsable_dashboard',[App\Http\Controllers\responsable\DashboardController::class,'index'])->name('respoDash');
 
 Route::post('/responsable_dashboard/filterResults', [App\Http\Controllers\responsable\DashboardController::class, 'filter'])->name('filter');
-
-// logout
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'perform'])->name('logout');
-});

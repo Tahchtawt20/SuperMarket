@@ -95,6 +95,7 @@ class DashboardController extends Controller {
         SuperM::destroy($id);
         return redirect()->route('index');
     }
+    
     public function search (Request $request){
         $result=$request->input('categories');
         $prod = DB::table('stock')->where('categorie', $result)->get();
