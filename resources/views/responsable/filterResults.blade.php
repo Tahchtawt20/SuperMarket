@@ -1,26 +1,57 @@
 @extends('layouts.respo')
 
+@section('title', 'Dashboard')
+
 @section('content')
-<form action="{{ route('filter') }}" method="post">
-    @csrf
-    <label for="categories">Choisir une categorie : </label>
-    <select name="categories" id="categories">
-        <option disabled selected>--</option>
-        <option value="produits laitiers">produits laitiers</option>
-        <option value="huiles">les huiles</option>
-        <option value="produits d'hygiene">produits d'hygiene</option>
-    </select>
-    <input type="submit" class="btn btn-primary" value="Filtrer les produits">
-</form>
-    
-    @foreach ($prods as $p)
-        <div >
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Produit {{ $p->Nom_Prod }}</h3>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Résultats pour : {{ $categorie }}</h2>
+                            <br>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="text-primary">
+                                        <th></th>
+                                        <th>Nom du produit</th>
+                                        <th>Categorie</th>
+                                        <th>Quantité</th>
+                                        <th>Unité</th>
+                                        <th>Prix achat</th>
+                                        <th>Prix vente</th>
+                                        <th>Date expiration</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="table table-striped">
+                                    @php
+                                        $ide = 0;
+                                    @endphp
+                                    @forelse ($prods as $item)
+                                        @php
+                                            $ide += 1;
+                                        @endphp
+                                        <tr>
+                                            <th>{{ $ide }}</th>
+                                            <td>{{ $item->Nom_Prod }}</td>
+                                            <td>{{ $item->categorie }}</td>
+                                            <td class="{{ $item->Quantité < 10 ? 'text-danger' : '' }}">
+                                                {{ $item->Quantité }}</td>
+                                            <td>{{ $item->Unité }}</td>
+                                            <td>{{ $item->Prix_achat }}DH</td>
+                                            <td>{{ $item->Prix_vente }}DH</td>
+                                            <td>{{ $item->Date_exp }}</td>
+                                        </tr>
+                                    @empty
+                                        <p class="text-danger">Pas de produits dans cette catégorie.</p>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                            <a href="{{ route('respoDash') }}" class="btn btn-primary">Retour</a>
+                        </div>
                     </div>
                 </div>
             </div>
-    @endforeach
-@endsection
+        @endsection

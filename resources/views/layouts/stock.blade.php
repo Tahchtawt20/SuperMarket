@@ -51,13 +51,10 @@
                             @endif
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('respoDash') }}">Dashboard</a>
+                            <a class="nav-link" href="{{ route('index') }}">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('fournisseurs') }}">Fournisseurs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('employes') }}">Employés</a>
+                            <a class="nav-link" href="{{ route('create') }}">Ajouter un produit</a>
                         </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
