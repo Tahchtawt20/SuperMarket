@@ -14,6 +14,7 @@
                                 <th></th>
                                 <th>Nom du fournisseur</th>
                                 <th>Produits fournis</th>
+                                <th>Ville</th>
                                 <th>Email</th>
                                 <th>Téléphone</th>
                             </tr>
@@ -30,6 +31,7 @@
                                     <th>{{ $ide }}</th>
                                     <td>{{ $item->nom }}</td>
                                     <td>{{ $item->produits }}</td>
+                                    <td>{{ $item->ville }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->tel }}</td>
                                 </tr>
