@@ -21,8 +21,10 @@ class SuperMFactory extends Factory
         "Fruits et légumes","Surgelés","Les céréales et les pattes",
         "Boissons","Produits d'hygiène","Entretien ménager",
         "Alimentation pour animaux","Bébés et enfants"];
+
         $unite=["Kilogramme (kg)","Gramme (g)","Litre (L)","Millilitre (mL)",
         "Pièce (pc)","Paquet (pkg)","Bouteille (btl)","Sachet (sach)","Boîte (box)"];
+        
         return [
             'Nom_Prod' => fake()->word(),
             'categorie' => fake()->randomElement($categorie),
