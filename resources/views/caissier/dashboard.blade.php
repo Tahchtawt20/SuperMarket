@@ -41,7 +41,7 @@
                                                 class="d-flex col-5">
                                                 @csrf
                                                 <input type="number" min="0" max="{{ $item->Quantité }}"
-                                                    name='num' class="form-control">
+                                                    name='num' class="form-control" required>
                                                 <button type="submit" class="btn btn-primary ms-1"><b>-</b></button>
                                             </form>
                                         </td>
